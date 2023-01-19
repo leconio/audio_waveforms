@@ -60,7 +60,7 @@ class PlayerController extends ChangeNotifier {
   }
 
   /// Reads bytes from audio file
-  Future<void> _readAudioFile(String path) async {
+  Future<void> readAudioFile(String path) async {
     _audioFilePath = path;
     File file = File(path);
     if (await file.exists()) {
@@ -90,8 +90,6 @@ class PlayerController extends ChangeNotifier {
   /// it completes, it prepares audio player.
   ///
   Future<void> preparePlayer(String path, [double? volume]) async {
-
-    await _readAudioFile(path);
     if ((_playerState == PlayerState.readingComplete &&
         _audioFilePath != null)) {
       final isPrepared = await AudioWaveformsInterface.instance
