@@ -99,8 +99,6 @@ class PlayerController extends ChangeNotifier {
         setPlayerState(PlayerState.initialized);
       }
       notifyListeners();
-    } else {
-      throw "Can not prepare player without reading audio file";
     }
   }
 
